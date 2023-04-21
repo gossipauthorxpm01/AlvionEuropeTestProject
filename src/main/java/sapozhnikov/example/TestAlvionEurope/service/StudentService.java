@@ -1,16 +1,12 @@
 package sapozhnikov.example.TestAlvionEurope.service;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.jdbc.support.SQLErrorCodes;
 import org.springframework.stereotype.Service;
 import sapozhnikov.example.TestAlvionEurope.exceptions.StudentServiceException;
 import sapozhnikov.example.TestAlvionEurope.models.Student;
 import sapozhnikov.example.TestAlvionEurope.repository.StudentsRepository;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.sql.SQLWarning;
 import java.util.List;
 
 @Service
@@ -31,14 +27,19 @@ public class StudentService {
 
 
     public String deleteStudent(int id) {
-        Student student = this.studentsRepository.getStudentById(id);
-        if(student == null){
+        try {
+            Student student = this.studentsRepository.getStudentById(id);
+            if (student == null) {
+                throw new StudentServiceException(String.format("Операция отменена. Студент по id - %s не найден", id));
+            }
+            studentsRepository.delete(student);
+            log.info("Студент с id - {} удален из системы", id);
+            return String.format("Студент с id - %s удален из системы", id);
+        } catch (StudentServiceException error) {
             log.error("Операция отменена. Студент по id - {} не найден", id);
-            return String.format("Операция отменена. Студент по id - %s не найден", id);
+            return error.toString();
         }
-        studentsRepository.delete(student);
-        log.info("Студент с id - {} удален из системы", id);
-        return String.format("Студент с id - %s удален из системы", id);
+
     }
 
     private boolean isStudentInBase(Student student, List<Student> students) {
