@@ -16,8 +16,8 @@ public class StudentService {
     private final StudentsRepository studentsRepository;
 
     public String addStudent(Student student) {
-        List<Student> students = this.studentsRepository.getAllBy();
-        if (!this.isStudentInBase(student, students)) {
+
+        if (!this.isStudentInBase(student)) {
             this.studentsRepository.save(student);
             return "Студент успешно добавлен в базу данных";
         } else {
@@ -42,7 +42,8 @@ public class StudentService {
 
     }
 
-    private boolean isStudentInBase(Student student, List<Student> students) {
+    private boolean isStudentInBase(Student student) {
+        List<Student> students = this.studentsRepository.getAllBy();
         try {
             for (Student uniqueStudent : students) {
                 if (uniqueStudent.getId() == student.getId()) {
