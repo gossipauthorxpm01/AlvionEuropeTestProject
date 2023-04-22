@@ -1,0 +1,34 @@
+.professor-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px black solid;
+    padding: 10px;
+    margin: 10px;
+    width: 20%;
+    text-align: center;
+}
+.professor-card-block{
+    display: flex;
+    flex-direction: column;
+}
+.professor-card-list{
+    display: flex;
+    align-items: center;
+}
+.professor-card-redactor *{
+    margin: 5px;
+}
+.professor-card-redactor{
+    display: flex;
+    justify-content: space-around;
+}
+.professor-card-redactor .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.professor-card-redactor h1{
+    font-size: 18px;
+}
