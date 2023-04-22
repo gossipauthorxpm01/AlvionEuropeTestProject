@@ -2,7 +2,6 @@ package sapozhnikov.example.TestAlvionEurope.controllers;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.codec.json.Jackson2JsonEncoder;
 import org.springframework.web.bind.annotation.*;
 import sapozhnikov.example.TestAlvionEurope.models.Professor;
 import sapozhnikov.example.TestAlvionEurope.service.ProfessorService;
@@ -28,9 +27,15 @@ public class ProfessorController {
         return this.professorService.addProfessor(professor);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000/")
     @DeleteMapping("/api/professor/delete-professor/{id}")
     public String deleteProfessor(@PathVariable int id) {
         return this.professorService.deleteProfessor(id);
+    }
+
+    @PostMapping("/api/professor/update-professor/")
+    public void changeProfessor(@RequestBody Professor professor){
+        this.professorService.changeProfessor(professor);
     }
 
 }

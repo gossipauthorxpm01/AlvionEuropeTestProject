@@ -3,6 +3,7 @@ package sapozhnikov.example.TestAlvionEurope.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import sapozhnikov.example.TestAlvionEurope.exceptions.ProfessorServiceException;
 import sapozhnikov.example.TestAlvionEurope.models.Professor;
 import sapozhnikov.example.TestAlvionEurope.repository.ProfessorRepository;
@@ -56,6 +57,10 @@ public class ProfessorService {
         return this.professorRepository.getAllBy();
     }
 
+    public void changeProfessor(Professor professor) {
+        this.professorRepository.save(professor);
+    }
+
     private boolean isProfessorInBase(Professor professor) {
         List<Professor> professors = this.professorRepository.getAllBy();
         try {
@@ -74,6 +79,7 @@ public class ProfessorService {
         }
 
     }
+
 
 
 }
