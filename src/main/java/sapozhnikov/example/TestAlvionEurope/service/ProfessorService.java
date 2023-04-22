@@ -8,6 +8,8 @@ import sapozhnikov.example.TestAlvionEurope.models.Professor;
 import sapozhnikov.example.TestAlvionEurope.repository.ProfessorRepository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -41,6 +43,19 @@ public class ProfessorService {
 
     }
 
+    public Professor getProfessor(Long id) {
+        try {
+            return this.professorRepository.findById(id).get();
+        } catch (NoSuchElementException error) {
+            return null;
+        }
+
+    }
+
+    public List<Professor> getAllProfessors() {
+        return this.professorRepository.getAllBy();
+    }
+
     private boolean isProfessorInBase(Professor professor) {
         List<Professor> professors = this.professorRepository.getAllBy();
         try {
@@ -59,4 +74,6 @@ public class ProfessorService {
         }
 
     }
+
+
 }

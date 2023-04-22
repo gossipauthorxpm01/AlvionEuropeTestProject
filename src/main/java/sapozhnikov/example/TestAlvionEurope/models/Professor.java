@@ -1,5 +1,6 @@
 package sapozhnikov.example.TestAlvionEurope.models;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

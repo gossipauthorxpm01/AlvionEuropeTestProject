@@ -1,6 +1,6 @@
 package sapozhnikov.example.TestAlvionEurope.models;
 
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @Table(name = "students_record_book")
+@Entity
 public class StudentRecordBook {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private long idRecordBook;
     private int math;
     private int russianLanguage;
@@ -19,7 +23,8 @@ public class StudentRecordBook {
     @Override
     public String toString() {
         return "StudentRecordBook{" +
-                "idRecordBook=" + idRecordBook +
+                "id=" + id +
+                ", idRecordBook=" + idRecordBook +
                 ", math=" + math +
                 ", russianLanguage=" + russianLanguage +
                 ", englishLanguage=" + englishLanguage +

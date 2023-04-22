@@ -1,7 +1,6 @@
 package sapozhnikov.example.TestAlvionEurope.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,14 +9,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @Table(name = "course_enrollments")
+@Entity
 public class CourseEnrollment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private long idStudent;
     private long idCourse;
 
     @Override
     public String toString() {
         return "CourseEnrollment{" +
-                "idStudent=" + idStudent +
+                "id=" + id +
+                ", idStudent=" + idStudent +
                 ", idCourse=" + idCourse +
                 '}';
     }
