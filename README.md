@@ -1,7 +1,9 @@
 # CourseModel
 
 ФИО: Сапожников Владислав Валерьевич
+
 Stack: Java 20, Spring framework, React js
+
 Contacts: telegram - gossipauthorxpm01
 
 Тестовое задание для кандидатов 
