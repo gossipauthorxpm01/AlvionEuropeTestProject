@@ -18,8 +18,8 @@ public class Student {
     private String address;
     private String phoneNumber;
     private String email;
-    private int idRecordBook;
-    private float averagePerformance;
+    private Integer idRecordBook;
+    private Float averagePerformance;
 
     @Override
     public String toString() {

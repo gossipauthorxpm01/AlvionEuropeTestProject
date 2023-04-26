@@ -18,7 +18,7 @@ public class Professor {
     private String name;
     private String address;
     private String phoneNumber;
-    private float payment;
+    private Float payment;
 
     @Override
     public String toString() {

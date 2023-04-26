@@ -25,7 +25,6 @@ public class ProfessorService {
             return "Профессор успешно добавлен в систему";
         }
         return "Профессор с данными уникальными полями находится в системе";
-
     }
 
     public String deleteProfessor(int id) {

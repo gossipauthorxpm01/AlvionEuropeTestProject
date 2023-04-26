@@ -1,5 +1,6 @@
 package sapozhnikov.example.TestAlvionEurope.models;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,8 +16,8 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    private float price;
-    private long idProfessorLector;
+    private Float price;
+    private Float idProfessorLector;
 
     @Override
     public String toString() {

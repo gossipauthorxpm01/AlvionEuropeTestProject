@@ -14,7 +14,6 @@ public class StudentRecordBook {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private long idRecordBook;
     private int math;
     private int russianLanguage;
     private int englishLanguage;
@@ -24,7 +23,6 @@ public class StudentRecordBook {
     public String toString() {
         return "StudentRecordBook{" +
                 "id=" + id +
-                ", idRecordBook=" + idRecordBook +
                 ", math=" + math +
                 ", russianLanguage=" + russianLanguage +
                 ", englishLanguage=" + englishLanguage +
