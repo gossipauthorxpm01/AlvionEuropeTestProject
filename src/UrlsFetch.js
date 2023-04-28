@@ -3,4 +3,5 @@ class UrlsFetch{
     static ADD_PROFESSOR = "http://localhost:8080/api/professor/add-professor/";
     static DELETE_PROFESSOR = "http://localhost:8080/api/professor/delete-professor/";
     static UPDATE_PROFESSOR = "http://localhost:8080/api/professor/update-professor/";
+    static DOWNLOAD_REPORT = "http://localhost:8080/api/get-report/";
 }export default UrlsFetch;

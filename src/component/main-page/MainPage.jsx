@@ -14,6 +14,7 @@ function MainPage() {
         <ProfessorsBlocks professors={professors}/>
         <hr/>
         <ProfessorsRedactor getProfessorsEvent={getProfessors}/>
+        <hr/>
     </div>
 
     async function getProfessors(){
