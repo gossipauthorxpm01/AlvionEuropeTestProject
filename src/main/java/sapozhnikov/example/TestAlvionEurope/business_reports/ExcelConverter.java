@@ -20,12 +20,12 @@ import java.util.List;
 @AllArgsConstructor
 public class ExcelConverter {
     private String fileName = "business-reports/excel-report.xlsx";
-    private Workbook workbook = new XSSFWorkbook();
     @Autowired
     private ExcelLogic excelLogic;
 
     public void createReport() throws IOException {
-        Sheet sheet = this.workbook.createSheet("Отчет по загрузке профессоров");
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet("Отчет по загрузке профессоров");
         Row row = sheet.createRow(0);
         Cell cellFIO = row.createCell(0);
         cellFIO.setCellValue("ФИО профессора");
@@ -49,9 +49,8 @@ public class ExcelConverter {
         sheet.autoSizeColumn(0);
         sheet.autoSizeColumn(1);
         sheet.autoSizeColumn(2);
-
-        this.workbook.write(new FileOutputStream(this.fileName));
-        this.workbook.close();
+        workbook.write(new FileOutputStream(this.fileName));
+        workbook.close();
     }
 
 
